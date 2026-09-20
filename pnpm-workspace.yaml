@@ -1,0 +1,13 @@
+packages: []
+
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+  msw: false
+  # postinstall writes AGENTS.md, CLAUDE.md and .claude/skills/domain-driver/
+  domain-driver: true
+  # transitive dependency of drizzle-kit and vitest; postinstall only checks its binary
+  esbuild: true
+
+minimumReleaseAgeExclude:
+  - domain-driver@0.6.1
