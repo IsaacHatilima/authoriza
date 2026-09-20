@@ -24,22 +24,9 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group"
 
-interface LoginFormProps extends React.ComponentProps<"div"> {
-  /**
-   * How long "Keep me signed in" lasts, in whole days.
-   *
-   * Passed in rather than read here: the lifetime is server configuration,
-   * and this component renders in the browser. Saying it out loud is the
-   * point, because a checkbox with no duration is a promise of nothing.
-   */
-  rememberDays: number
-}
+type LoginFormProps = React.ComponentProps<"div">
 
-export function LoginForm({
-  className,
-  rememberDays,
-  ...props
-}: LoginFormProps) {
+export function LoginForm({ className, ...props }: LoginFormProps) {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -133,15 +120,11 @@ export function LoginForm({
               id="remember"
               checked={remember}
               onCheckedChange={(checked) => setRemember(checked)}
-              aria-describedby="remember-description"
             />
             <FieldContent>
               <FieldLabel htmlFor="remember" className="font-normal">
                 Keep me signed in
               </FieldLabel>
-              <FieldDescription id="remember-description">
-                Stay signed in on this device for {rememberDays} days.
-              </FieldDescription>
             </FieldContent>
           </Field>
 
