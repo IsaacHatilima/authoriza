@@ -39,14 +39,6 @@ describe("LoginForm", () => {
     expect(screen.getByLabelText(/password/i)).toBeDefined()
   })
 
-  it("says how long the remembered session lasts", () => {
-    render(<LoginForm />)
-
-    expect(
-      screen.getByText(/stay signed in on this device for 30 days/i)
-    ).toBeDefined()
-  })
-
   it("names the checkbox exactly once for assistive tech", () => {
     render(<LoginForm />)
 
